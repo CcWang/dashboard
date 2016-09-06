@@ -2,8 +2,8 @@
 ## [Click to play](https://ccwang.github.io/dashboard/index.html)
 ## Features
 * Side Navigation Bar (be able to hide).
-* Each card represend different data, for A/B/C, if data is greater than 50%, encourage the user.
-* Buttom part show user's data summary.
+* Each card represents different data, for A/B/C, if data is greater than 50%, encourage the user.
+* Bottom part show user's data summary.
   * How A/B/C changed every day.
   * Calories In/Out difference and Weight changes.
 * Single-page application (data change in real time).
