@@ -13,7 +13,6 @@
 	<link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="static/css/nav.css" media="screen">
 	<link rel="stylesheet" href="static/css/main.css" media="screen">
-	<link rel="stylesheet" href="static/css/details.css" media="screen">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<script type="text/javascript" src='static/js/main.js'></script>
@@ -28,12 +27,11 @@
 	    <ul class="navbar-primary-menu">
 	      <li>
 	        <a id='profile'><span class="glyphicon glyphicon-user"></span><span class="nav-label">Profile</span></a>
-	        <a><span class="glyphicon glyphicon-list-alt"></span><span class="nav-label">Review Details</span></a>
-	        <!-- <span class="glyphicons glyphicons-inbox-out"></span> -->
-	        <a  ng-click='change(one)'><span class="glyphicon glyphicon-inbox"></span><span class="nav-label">Day One</span></a>
-	        <a ng-click='change(two)'><span class="glyphicon glyphicon-folder-open"></span><span class="nav-label">Day Two</span></a>
-	        <a ng-click='change(three)'><span class="glyphicon glyphicon-pencil"></span><span class="nav-label">Day Three</span></a>
-	        <a><span class="glyphicon glyphicon-option-horizontal"></span><span class="nav-label">More</span></a>
+	        <a ng-click='toggleDays()'><span class="glyphicon glyphicon-plus" ng-if='!days'></span><span class="glyphicon glyphicon-minus" ng-if='days'></span><span class="nav-label">Everyday Data</span></a>
+	        <a  ng-click='change(one)' ng-show='days'><span class="glyphicon glyphicon-inbox"></span><span class="nav-label">Day One</span></a>
+	        <a ng-click='change(two)' ng-show='days'><span class="glyphicon glyphicon-folder-open"></span><span class="nav-label">Day Two</span></a>
+	        <a ng-click='change(three)' ng-show='days'><span class="glyphicon glyphicon-pencil"></span><span class="nav-label">Day Three</span></a>
+	        <a ng-show='days'><span class="glyphicon glyphicon-option-horizontal"></span><span class="nav-label">More</span></a>
 	      </li>
 	    </ul>
 	  </nav>
@@ -61,7 +59,7 @@
 
       <div class="detail_footer" style="background-color:#202020;">
         <span class = "action_footer_left">review <a class = "footer glyphicon glyphicon-circle-arrow-right" href=""></a></span>
-        <span class = "action_footer_right">email client   <a class = "footer glyphicon glyphicon-envelope" href=""></a></span>
+        <span class = "action_footer_right">email<a class = "footer glyphicon glyphicon-envelope" href=""></a></span>
       </div>
 
     </div>
@@ -133,6 +131,7 @@
             duration="800"
             animation="easeInOutQuart"
             animation-delay="0"
+
 
             >
 
@@ -230,10 +229,13 @@
 
 	</div>
 	<script type="text/javascript">
-  $('.btn-expand-collapse').click(function(e) {
-        $('.navbar-primary').toggleClass('collapsed');
-       
-});
+	$(document).ready(function(){
+
+	  $('.btn-expand-collapse').click(function(e) {
+	        $('.navbar-primary').toggleClass('collapsed');
+	       
+		});
+	});
 </script>
 </body>
 </html>

@@ -33,5 +33,8 @@ myApp.controller('mainCon',function($scope,mainFac){
 	$scope.change = function(day){
 		$scope.info = day;
 	};
-	
+	$scope.days=false;
+	$scope.toggleDays = function(){
+		$scope.days = !$scope.days; 
+	}
 });
