@@ -4,16 +4,12 @@ body{
 }
 
 #details{
-  margin:6% 12%;
+  margin:3% 8%;
 }
 #details >div{
   /*background-color: blue;*/
-  margin-bottom: 4%;
+  margin-bottom: 2%;
 }
-
-
-
-
 
 .progress-wrapper {
   position: relative;
@@ -58,7 +54,7 @@ body{
     float:right;
 }
 .detail_status {
-  height:20vmax;
+  height:15vmax;
 }
 .detail_footer {
   background-color: lightgray;
@@ -120,6 +116,9 @@ a.footer:hover{
   font-size: 3.1em;
   font-weight: lighter;
   text-align: center;
+}
+footer {
+  margin-top: 10%;
 }
 
 

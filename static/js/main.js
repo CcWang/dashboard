@@ -11,7 +11,8 @@ myApp.controller('mainCon',function($scope,mainFac){
 		'c':0.3,
 		'weight':150,
 		'in':1000,
-		'out':800
+		'out':800,
+		'day':'1'
 	};
 	$scope.two = {
 		'a':0.9,
@@ -19,7 +20,8 @@ myApp.controller('mainCon',function($scope,mainFac){
 		'c':0.5,
 		'weight':180,
 		'in':1500,
-		'out':900
+		'out':900,
+		'day':'2'
 	};
 	$scope.three = {
 		'a':0.3,
@@ -27,11 +29,14 @@ myApp.controller('mainCon',function($scope,mainFac){
 		'c':0.8,
 		'weight':160,
 		'in':1250,
-		'out':1000
+		'out':1000,
+		'day':'3'
 	};
 	$scope.info=$scope.one;
+
 	$scope.change = function(day){
 		$scope.info = day;
+
 	};
 	$scope.days=false;
 	$scope.toggleDays = function(){
