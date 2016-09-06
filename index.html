@@ -39,10 +39,10 @@
 		<!-- finsih side nav bar -->
 		<!-- dashboard -->
 
-
+<h1 class="col-sm-2"> Day <img src="static/images/{{info.day}}.png"></h1>
  <div class="col-sm-12" id="details">
 	 
-    <div class="col-sm-4 shorter">
+    <div class="col-sm-4">
       <div class="detail_header">
         Weight
         <span class="glyphicon glyphicon-cog"></span>
@@ -66,7 +66,7 @@
     </div>
 
     <!-- Calories In -->
-    <div class="col-sm-4 shorter">
+    <div class="col-sm-4">
       <div class="detail_header">
       	Calories In
         <span class="glyphicon glyphicon-cog"></span>
@@ -85,7 +85,7 @@
 
     </div>
 
-    <div class="col-sm-4 shorter" >
+    <div class="col-sm-4" >
       <div class="detail_header">
         Calories Out
         <span class="glyphicon glyphicon-cog"></span>
@@ -117,27 +117,30 @@
         <div id="a">
           <p>Accomplished:  <span>{{info.a}}</span><p ng-if='info.a >0.5'> Cool!</p><br ng-if='info.a <=0.5'></p>
         </div>
-        <div class="progress-wrapper">
+        
+        	
+        
+	        <div class="progress-wrapper col-sm-8 col-sm-offset-2 ">
 
-            <div class="circles"
-            round-progress
-            max=100
-            current= info.a*100
-            color="white"
-            bgcolor="#66ccff"
-            radius= 80
-            stroke= 15
-            semi="false"
-            rounded="true"
-            clockwise="true"
-            duration="800"
-            animation="easeInOutQuart"
-            animation-delay="0"
+	            <div class="circles"
+	            round-progress
+	            max=100
+	            current= info.a*100
+	            color="white"
+	            bgcolor="#66ccff"
+	            radius= 80
+	            stroke= 15
+	            semi="false"
+	            rounded="true"
+	            clockwise="true"
+	            duration="800"
+	            animation="easeInOutQuart"
+	            animation-delay="0"
+	            responsive='true'
 
+	            >
+          </div>
 
-            >
-
-            </div>
           <div class="text" ng-if='info.a<1'>{{info.a * 100}} %</div>
           <div class="text" ng-if='info.a >= 1'><span class="glyphicon glyphicon-ok"></span></div>
         </div>
@@ -158,7 +161,7 @@
         <div id="b">
           <p><span>{{(info.b)}}</span> Finished <p ng-if='info.b >0.5'> Good Job!</p><br ng-if='info.b <=0.5'></p>
         </div>
-          <div class="progress-wrapper">
+          <div class="progress-wrapper col-sm-8 col-sm-offset-2">
 
             <div class="circles"
             round-progress
@@ -174,6 +177,7 @@
             duration="800"
             animation="easeInOutQuart"
             animation-delay="0"
+            responsive='true'
 
             >
 
@@ -197,7 +201,7 @@
         <div id="c">
           <p>Completed: <span ng-bind='info.c'></span><p ng-if='info.c >0.5'> Nicely Done!</p><br ng-if='info.c <=0.5'></p>
         </div>
-        <div class="progress-wrapper">
+        <div class="progress-wrapper col-sm-8 col-sm-offset-2">
 
             <div class="circles"
             round-progress
@@ -213,6 +217,7 @@
             duration="800"
             animation="easeInOutQuart"
             animation-delay="0"
+            responsive='true'
 
             >
 

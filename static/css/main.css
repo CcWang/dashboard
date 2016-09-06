@@ -4,7 +4,7 @@ body{
 }
 
 #details{
-  margin:3% 8%;
+  margin:1% 8%;
 }
 #details >div{
   /*background-color: blue;*/
@@ -13,6 +13,7 @@ body{
 
 .progress-wrapper {
   position: relative;
+
 }
 .progress-wrapper .circles{
 
@@ -54,7 +55,7 @@ body{
     float:right;
 }
 .detail_status {
-  height:15vmax;
+  height:325px;
 }
 .detail_footer {
   background-color: lightgray;
@@ -120,8 +121,6 @@ a.footer:hover{
 footer {
   margin-top: 10%;
 }
-
-
 
 
 
