@@ -39,93 +39,132 @@
 		<!-- finsih side nav bar -->
 		<!-- dashboard -->
 
-<h1 class="col-sm-2"> Day <img src="static/images/{{info.day}}.png"></h1>
- <div class="col-sm-12" id="details">
+		<h1 class="col-sm-2 col-sm-offset-2"> Day <img src="static/images/{{info.day}}.png"></h1>
+		<div class="col-sm-12" id="details">
 	 
-    <div class="col-sm-4">
-      <div class="detail_header">
-        Weight
-        <span class="glyphicon glyphicon-cog"></span>
-      </div>
-      <div class="detail_status" style="background-color:#454545">
-	      <div class="finished_word">
-					<div id="weight">
-						<p>Weight:  <span>{{info.weight}}</span>  ( lb )</p>
-					</div>
-      	
+	    <div class="col-sm-4">
+	      <div class="detail_header">
+	        Weight
+	        <span class="glyphicon glyphicon-cog"></span>
+	      </div>
+	      <div class="detail_status" style="background-color:#454545">
+		      <div class="finished_word">
+						<div id="weight">
+							<p>Weight:  <span>{{info.weight}}</span>  ( lb )</p>
+						</div>
+	      	
+		      </div>
+
+	         
 	      </div>
 
-         
-        </div>
+	      <div class="detail_footer" style="background-color:#202020;">
+	        <span class = "action_footer_left">review <a class = "footer glyphicon glyphicon-circle-arrow-right" href=""></a></span>
+	        <span class = "action_footer_right">email <a class = "footer glyphicon glyphicon-envelope" href=""></a></span>
+	      </div>
 
-      <div class="detail_footer" style="background-color:#202020;">
-        <span class = "action_footer_left">review <a class = "footer glyphicon glyphicon-circle-arrow-right" href=""></a></span>
-        <span class = "action_footer_right">email <a class = "footer glyphicon glyphicon-envelope" href=""></a></span>
-      </div>
-
-    </div>
+	    </div>
 
     <!-- Calories In -->
-    <div class="col-sm-4">
-      <div class="detail_header">
-      	Calories In
-        <span class="glyphicon glyphicon-cog"></span>
-      </div>
-      <div class="detail_status" style="background-color:#00adf2">
-        <div class="finished_word">
-          <p><span ng-bind='info.in'></span> calories <br>are token in!</p>
+	    <div class="col-sm-4">
+	      <div class="detail_header">
+	      	Calories In
+	        <span class="glyphicon glyphicon-cog"></span>
+	      </div>
+	      <div class="detail_status" style="background-color:#00adf2">
+	        <div class="finished_word">
+	          <p><span ng-bind='info.in'></span> calories <br>are token in!</p>
 
-        </div>
-      </div>
-      <div class="detail_footer" style = "background-color:#009CDB;">
-        <span class = "action_footer_left">review  <a class = "footer glyphicon glyphicon-circle-arrow-right" href=""></a></span>
-        <span class = "action_footer_right">email <a class = "footer glyphicon glyphicon-envelope" href=""></a></span>
-      </div>
+	        </div>
+	      </div>
+	      <div class="detail_footer" style = "background-color:#009CDB;">
+	        <span class = "action_footer_left">review  <a class = "footer glyphicon glyphicon-circle-arrow-right" href=""></a></span>
+	        <span class = "action_footer_right">email <a class = "footer glyphicon glyphicon-envelope" href=""></a></span>
+	      </div>
 
 
-    </div>
+	    </div>
+<!-- Calories Out -->
+	    <div class="col-sm-4" >
+	      <div class="detail_header">
+	        Calories Out
+	        <span class="glyphicon glyphicon-cog"></span>
+	      </div>
+	      <div class="detail_status" style="background-color:#2b8148">
 
-    <div class="col-sm-4" >
-      <div class="detail_header">
-        Calories Out
-        <span class="glyphicon glyphicon-cog"></span>
-      </div>
-      <div class="detail_status" style="background-color:#2b8148">
+	         <div class="finished_word">
+	          <p >Burned <span ng-bind='info.out'></span></p>
+	          <h2>Calories !!</h2>
+	          
+	        	</div>
 
-         <div class="finished_word">
-          <p >Burned <span ng-bind='info.out'></span></p>
-          <h2>Calories !!</h2>
-          
-        	</div>
+	      </div>
+	      <div class="detail_footer" style = "background-color:#297742;">
+	         <span class = "action_footer_left">review  <a class = "footer glyphicon glyphicon-circle-arrow-right" href=""></a></span>
+	        <span class = "action_footer_right">email <a class = "footer glyphicon glyphicon-envelope" href=""></a></span>
+	      </div>
 
-        </div>
- 
-
-      <div class="detail_footer" style = "background-color:#297742;">
-         <span class = "action_footer_left">review  <a class = "footer glyphicon glyphicon-circle-arrow-right" href=""></a></span>
-        <span class = "action_footer_right">email <a class = "footer glyphicon glyphicon-envelope" href=""></a></span>
-      </div>
-
-    </div>
+	    </div>
     <!-- a -->
-    <div class="col-sm-4">
-      <div class="detail_header">
-        A
-        <span class="glyphicon glyphicon-cog"></span>
-      </div>
-      <div class="detail_status" style="background-color:#005daa">
-        <div id="a">
-          <p>Accomplished:  <span>{{info.a}}</span><p ng-if='info.a >0.5'> Cool!</p><br ng-if='info.a <=0.5'></p>
-        </div>
-        
-        	
-        
-	        <div class="progress-wrapper col-sm-8 col-sm-offset-2 ">
+	    <div class="col-sm-4">
+	      <div class="detail_header">
+	        A
+	        <span class="glyphicon glyphicon-cog"></span>
+	      </div>
+	      <div class="detail_status" style="background-color:#005daa">
+	        <div id="a">
+	          <p>Accomplished:  <span>{{info.a}}</span><p ng-if='info.a >0.5'> Cool!</p><br ng-if='info.a <=0.5'></p>
+	        </div>
+	        
+	        	
+	        
+		        <div class="progress-wrapper col-sm-8 col-sm-offset-2 ">
+
+		            <div class="circles"
+		            round-progress
+		            max=100
+		            current= info.a*100
+		            color="white"
+		            bgcolor="#66ccff"
+		            radius= 80
+		            stroke= 15
+		            semi="false"
+		            rounded="true"
+		            clockwise="true"
+		            duration="800"
+		            animation="easeInOutQuart"
+		            animation-delay="0"
+		            responsive='true'
+
+		            >
+	          </div>
+
+	          <div class="text" ng-if='info.a<1'>{{info.a * 100}} %</div>
+	          <div class="text" ng-if='info.a >= 1'><span class="glyphicon glyphicon-ok"></span></div>
+	        </div>
+	      </div>
+	      <div class="detail_footer" style = "background-color:#045297;">
+	         <span class = "action_footer_left">review    <a class = "footer glyphicon glyphicon-circle-arrow-right" href=""></a></span>
+	        <span class = "action_footer_right">email <a class = "footer glyphicon glyphicon-envelope" href=""></a></span>
+	      </div>
+	    </div>
+
+    <!-- B -->
+	    <div class="col-sm-4">
+	      <div class="detail_header">
+	        B
+	        <span class="glyphicon glyphicon-cog"></span>
+	      </div>
+	      <div class="detail_status" style="background-color:#f04a8a">
+	        <div id="b">
+	          <p><span>{{(info.b)}}</span> Finished <p ng-if='info.b >0.5'> Good Job!</p><br ng-if='info.b <=0.5'></p>
+	        </div>
+	          <div class="progress-wrapper col-sm-8 col-sm-offset-2">
 
 	            <div class="circles"
 	            round-progress
 	            max=100
-	            current= info.a*100
+	            current= info.b*100
 	            color="white"
 	            bgcolor="#66ccff"
 	            radius= 80
@@ -139,110 +178,69 @@
 	            responsive='true'
 
 	            >
-          </div>
 
-          <div class="text" ng-if='info.a<1'>{{info.a * 100}} %</div>
-          <div class="text" ng-if='info.a >= 1'><span class="glyphicon glyphicon-ok"></span></div>
-        </div>
-      </div>
-      <div class="detail_footer" style = "background-color:#045297;">
-         <span class = "action_footer_left">review    <a class = "footer glyphicon glyphicon-circle-arrow-right" href=""></a></span>
-        <span class = "action_footer_right">email <a class = "footer glyphicon glyphicon-envelope" href=""></a></span>
-      </div>
-    </div>
+	            </div>
+	          <div class="text">{{(info.b)*100}} %</div>
+	        </div>
 
-    <!-- B -->
-    <div class="col-sm-4">
-      <div class="detail_header">
-        B
-        <span class="glyphicon glyphicon-cog"></span>
-      </div>
-      <div class="detail_status" style="background-color:#f04a8a">
-        <div id="b">
-          <p><span>{{(info.b)}}</span> Finished <p ng-if='info.b >0.5'> Good Job!</p><br ng-if='info.b <=0.5'></p>
-        </div>
-          <div class="progress-wrapper col-sm-8 col-sm-offset-2">
-
-            <div class="circles"
-            round-progress
-            max=100
-            current= info.b*100
-            color="white"
-            bgcolor="#66ccff"
-            radius= 80
-            stroke= 15
-            semi="false"
-            rounded="true"
-            clockwise="true"
-            duration="800"
-            animation="easeInOutQuart"
-            animation-delay="0"
-            responsive='true'
-
-            >
-
-            </div>
-          <div class="text">{{(info.b)*100}} %</div>
-        </div>
-
-      </div>
-      <div class="detail_footer" style="background-color: #D34679;">
-        <span class = "action_footer_left">review    <a class = "footer glyphicon glyphicon-circle-arrow-right" href=""></a></span>
-        <span class = "action_footer_right">email  <a class = "footer glyphicon glyphicon-envelope" href=""></a></span>
-      </div>
-    </div>
+	      </div>
+	      <div class="detail_footer" style="background-color: #D34679;">
+	        <span class = "action_footer_left">review    <a class = "footer glyphicon glyphicon-circle-arrow-right" href=""></a></span>
+	        <span class = "action_footer_right">email  <a class = "footer glyphicon glyphicon-envelope" href=""></a></span>
+	      </div>
+	    </div>
     <!-- C -->
-    <div class="col-sm-4">
-      <div class="detail_header text-center">
-        C
-        <span class="glyphicon glyphicon-cog"></span>
-      </div>
-      <div class="detail_status" style="background-color:orange">
-        <div id="c">
-          <p>Completed: <span ng-bind='info.c'></span><p ng-if='info.c >0.5'> Nicely Done!</p><br ng-if='info.c <=0.5'></p>
-        </div>
-        <div class="progress-wrapper col-sm-8 col-sm-offset-2">
+	    <div class="col-sm-4">
+	      <div class="detail_header text-center">
+	        C
+	        <span class="glyphicon glyphicon-cog"></span>
+	      </div>
+	      <div class="detail_status" style="background-color:orange">
+	        <div id="c">
+	          <p>Completed: <span ng-bind='info.c'></span><p ng-if='info.c >0.5'> Nicely Done!</p><br ng-if='info.c <=0.5'></p>
+	        </div>
+	        <div class="progress-wrapper col-sm-8 col-sm-offset-2">
 
-            <div class="circles"
-            round-progress
-            max=100
-            current= info.c*100
-            color="white"
-            bgcolor="#66ccff"
-            radius= 80
-            stroke= 15
-            semi="false"
-            rounded="true"
-            clockwise="true"
-            duration="800"
-            animation="easeInOutQuart"
-            animation-delay="0"
-            responsive='true'
+	            <div class="circles"
+	            round-progress
+	            max=100
+	            current= info.c*100
+	            color="white"
+	            bgcolor="#66ccff"
+	            radius= 80
+	            stroke= 15
+	            semi="false"
+	            rounded="true"
+	            clockwise="true"
+	            duration="800"
+	            animation="easeInOutQuart"
+	            animation-delay="0"
+	            responsive='true'
 
-            >
+	            >
 
-            </div>
-          <div class="text">{{(info.c)*100}} % </div>
-        </div>
-      </div>
-      <div class="detail_footer" style = "background-color:darkorange;">
-        <span class = "action_footer_left">review  <a class = "footer glyphicon glyphicon-circle-arrow-right" href=""></a></span>
-        <span class = "action_footer_right">email <a class = "footer glyphicon glyphicon-envelope" href=""></a></span>
-      </div>
-    </div>
-  </div>
+	            </div>
+	          <div class="text">{{(info.c)*100}} % </div>
+	        </div>
+	      </div>
+	      <div class="detail_footer" style = "background-color:darkorange;">
+	        <span class = "action_footer_left">review  <a class = "footer glyphicon glyphicon-circle-arrow-right" href=""></a></span>
+	        <span class = "action_footer_right">email <a class = "footer glyphicon glyphicon-envelope" href=""></a></span>
+	      </div>
+	    </div>
+	  </div>
 
   <!-- summary -->
 
-		<div class="col-sm-12 col-sm-offset-1" >
-			<div class="col-sm-6" id='abc'>
-				
-			</div>
-			<div class="col-sm-6" id='calories'>
-				
+			<div class="col-sm-12 col-sm-offset-1" >
+				<div class="col-sm-6" id='abc'>
+					
+				</div>
+				<div class="col-sm-6" id='calories'>
+					
+				</div>
 			</div>
 		</div>
-	</div>
 
 
 	<script type="text/javascript">
