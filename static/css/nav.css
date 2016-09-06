@@ -2,15 +2,16 @@
   background-color: #333;
   bottom: 0px;
   left: 0px;
-  position: absolute;
+  position: fixed;
   top: 0px;
   width: 13%;
   z-index: 8;
-  overflow: hidden;
+  /*overflow: hidden;*/
   -webkit-transition: all 0.1s ease-in-out;
   -moz-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
   font-size: 1vw;
+  height: 100%;
   /*border-right: solid 1px #666;*/
 }
 .navbar-primary-menu li a * {
