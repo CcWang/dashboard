@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>User Dashboard</title>
+	<script type="text/javascript" src='static/jquery.min.js'></script>
+	<script type="text/javascript" src='static/highcharts.js'></script>
+	<script type="text/javascript" src='static/exporting.js'></script>
+	<script type="text/javascript" src='static/angular.min.js'></script>
+	<script type="text/javascript" src='static/bootstrap.min.js'></script>
+	<link rel="stylesheet" type="text/css" href="static/bootstrap.min.css" />
+	<script type="text/javascript" src='static/main.js'></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	  <link rel="stylesheet" type="text/css" href="static/details.css">
+</head>
+<body>
+	<div style="margin-top:50px;">
+  <div class="col-sm-2 text-center" id="profile">
+    <div id="imgdiv">
+      <img src="/img/blank.jpg" class="img-responsive img-circle img-center">
+    </div>
+    <h4>{{borrower.name}}</h4>
+    <h5>{{borrower.address}}</h5>
+    <h5>Loan #: {{borrower.loan_id}}</h5>
+    <!-- bring down to application card -->
+    <!-- <h5>APR: {{borrower.apr}}</h5>
+    <h5>Loan Amount: $ {{borrower.loan_amount}}</h5>
+    <h5>Monthly Premium: $ {{borrower.monthly_premium}}</h5> -->
+    <hr>
+    <p>Application(Form 1003) <span class="glyphicon glyphicon-ok" ng-show='totals.application'></span><span class="glyphicon glyphicon-remove" ng-hide='totals.application'></span></p>
+    <p>Documents Submission<span class="glyphicon glyphicon-ok"></span></p>
+    <p>Approval <span class="glyphicon glyphicon-ok" ng-show='totals.form1003'></span><span class="glyphicon glyphicon-remove" ng-hide='totals.form1003'></span></p>
+    <p>Lock Rate & Disclosures <span class="glyphicon glyphicon-ok" ng-show='totals.disclosure'></span><span class="glyphicon glyphicon-remove" ng-hide='totals.disclosure'></span></p>
+    <p>Appraisal <span class="glyphicon glyphicon-ok" ng-show='totals.apprisal' ></span><span class="glyphicon glyphicon-remove" ng-hide='totals.apprisal' ></span></p>
+    <p>Closing Disclosures <span class="glyphicon glyphicon-ok" ng-show='totals.credit' ></span><span class="glyphicon glyphicon-remove" ng-hide='totals.credit' ></span></p>
+    <button ng-show='totals.closing' class="btn btn-success">Loan Closing</button>
+    <button ng-hide='totals.closing' class="btn btn-default">Loan Opening</button>
+
+  </div>
+  <div class="col-sm-9" id="details">
+    <div class="col-sm-4">
+      <div class="detail_header">
+        Application (Form 1003)
+        <span class="glyphicon glyphicon-cog"></span>
+      </div>
+      <div class="detail_status" style="background-color:#454545">
+        <div id="application_done" ng-show='totals.application'>
+
+
+          <p>Loan Amount: <span>${{borrower.loan_amount}}</span></p>
+          <p>Monthly Premium: <span>$ {{borrower.monthly_premium}}</span></p>
+
+        </div>
+        <div class="progress-wrapper" ng-hide = 'totals.application'>
+
+            <div class="circles"
+            round-progress
+            max=100
+            current= borrower.application_status*100
+            color="white"
+            bgcolor="#66ccff"
+            radius= 80
+            stroke= 15
+            semi="false"
+            rounded="true"
+            clockwise="true"
+            duration="800"
+            animation="easeInOutQuart"
+            animation-delay="0"
+
+            >
+
+            </div>
+          <div class="text">{{(borrower.application_status).toFixed(2)*100}} / 100</div>
+        </div>
+      </div>
+      <div class="detail_footer" style="background-color:#202020;">
+        <span class = "action_footer_left">review <a class = "footer glyphicon glyphicon-circle-arrow-right" href=""></a></span>
+        <span class = "action_footer_right">email client   <a class = "footer glyphicon glyphicon-envelope" href=""></a></span>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="detail_header">
+        Documents
+        <span class="glyphicon glyphicon-cog"></span>
+      </div>
+      <div class="detail_status" style="background-color:#00adf2">
+        <div class="finished_word">
+          <p>all <span>7</span> documents <br>are uploaded</p>
+        </div>
+      </div>
+      <div class="detail_footer" style = "background-color:#009CDB;">
+        <span class = "action_footer_left">review  <a class = "footer glyphicon glyphicon-circle-arrow-right" href=""></a></span>
+        <span class = "action_footer_right">email client   <a class = "footer glyphicon glyphicon-envelope" href=""></a></span>
+      </div>
+
+
+    </div>
+
+    <div class="col-sm-4">
+      <div class="detail_header">
+        Approval
+        <span class="glyphicon glyphicon-cog"></span>
+      </div>
+      <div class="detail_status" style="background-color:#2b8148">
+        <!-- <div id="form1003_done" ng-show='totals.form1003'>
+          show
+        </div> -->
+        <div class="progress-wrapper" >
+
+            <div class="circles"
+            round-progress
+            max=1
+            current= (borrower.form1003_status)
+            color="white"
+            bgcolor="#66ccff"
+            radius= 80
+            stroke= 15
+            semi="false"
+            rounded="true"
+            clockwise="true"
+            duration="800"
+            animation="easeInOutQuart"
+            animation-delay="0"
+
+            >
+
+            </div>
+          <div class="text">{{(borrower.form1003_status).toFixed(2)*100}} / 100</div>
+        </div>
+      </div>
+      <div class="detail_footer" style = "background-color:#297742;">
+         <span class = "action_footer_left">review  <a class = "footer glyphicon glyphicon-circle-arrow-right" href=""></a></span>
+        <span class = "action_footer_right">email client   <a class = "footer glyphicon glyphicon-envelope" href=""></a></span>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="detail_header">
+        Lock Rate & Disclosure
+        <span class="glyphicon glyphicon-cog"></span>
+      </div>
+      <div class="detail_status" style="background-color:#005daa">
+        <div id="disclosure_done" ng-show='totals.disclosure'>
+          <p>APR Rate:  <span>{{borrower.apr}}</span></p>
+          <p>Disclosures: <span>Signed</span></p>
+        </div>
+        <div class="progress-wrapper" ng-hide = 'totals.disclosure'>
+
+            <div class="circles"
+            round-progress
+            max=100
+            current= borrower.disclosure_status*100
+            color="white"
+            bgcolor="#66ccff"
+            radius= 80
+            stroke= 15
+            semi="false"
+            rounded="true"
+            clockwise="true"
+            duration="800"
+            animation="easeInOutQuart"
+            animation-delay="0"
+
+            >
+
+            </div>
+          <div class="text">{{(borrower.disclosure_status).toFixed(2)*100}} / 100</div>
+        </div>
+      </div>
+      <div class="detail_footer" style = "background-color:#045297;">
+         <span class = "action_footer_left">review    <a class = "footer glyphicon glyphicon-circle-arrow-right" href=""></a></span>
+        <span class = "action_footer_right">email client   <a class = "footer glyphicon glyphicon-envelope" href=""></a></span>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="detail_header">
+
+
+        Appraisal
+        <span class="glyphicon glyphicon-cog"></span>
+      </div>
+      <div class="detail_status" style="background-color:#f04a8a">
+        <div id="apprisal_done" ng-show='totals.apprisal'>
+          <p>$ <span>{{borrower.loan_amount +((totals.property_value).toFixed(2)*1000)}}</span><br>property value</p>
+        </div>
+          <div class="progress-wrapper" ng-hide = 'totals.apprisal'>
+
+            <div class="circles"
+            round-progress
+            max=100
+            current= borrower.apprisal_status*100
+            color="white"
+            bgcolor="#66ccff"
+            radius= 80
+            stroke= 15
+            semi="false"
+            rounded="true"
+            clockwise="true"
+            duration="800"
+            animation="easeInOutQuart"
+            animation-delay="0"
+
+            >
+
+            </div>
+          <div class="text">{{(borrower.apprisal_status).toFixed(2)*100}} / 100</div>
+        </div>
+
+      </div>
+      <div class="detail_footer" style="background-color: #D34679;">
+        <span class = "action_footer_left">review    <a class = "footer glyphicon glyphicon-circle-arrow-right" href=""></a></span>
+        <span class = "action_footer_right">email client   <a class = "footer glyphicon glyphicon-envelope" href=""></a></span>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="detail_header">
+        Closing Disclosure
+        <span class="glyphicon glyphicon-cog"></span>
+      </div>
+      <div class="detail_status" style="background-color:orange">
+        <div id="credit_done" ng-show='totals.credit'>
+          <p>Disclosure: <br><span>Closing</span></p>
+        </div>
+        <div class="progress-wrapper" ng-hide = 'totals.credit'>
+
+            <div class="circles"
+            round-progress
+            max=100
+            current= borrower.credit_report_status*100
+            color="white"
+            bgcolor="#66ccff"
+            radius= 80
+            stroke= 15
+            semi="false"
+            rounded="true"
+            clockwise="true"
+            duration="800"
+            animation="easeInOutQuart"
+            animation-delay="0"
+
+            >
+
+            </div>
+          <div class="text">{{(borrower.credit_report_status).toFixed(2)*100}} / 100</div>
+        </div>
+      </div>
+      <div class="detail_footer" style = "background-color:darkorange;">
+        <span class = "action_footer_left">review  <a class = "footer glyphicon glyphicon-circle-arrow-right" href=""></a></span>
+        <span class = "action_footer_right">email client   <a class = "footer glyphicon glyphicon-envelope" href=""></a></span>
+      </div>
+    </div>
+  </div>
+ <!--  <div class="col-sm-2" id="summary">
+
+  </div> -->
+</div>
+
+</body>
+</html>
