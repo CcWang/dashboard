@@ -1,7 +1,5 @@
 $(document).ready(function () {
 	// body...
-	
-
 	$('#abc').highcharts({
 				chart:{
 					type:'line',
@@ -103,13 +101,13 @@ $(document).ready(function () {
         },
         series: [{
             name: 'Weight',
-            color: 'rgba(126,86,134,.9)',
+            color: 'rgba(126,86,134,.7)',
             data: [150,180,160],
             pointPadding: 0.4,
             pointPlacement: -0.2
         }, {
             name: 'Calorie (IN)',
-            color: 'rgba(248,161,63,1)',
+            color: 'rgba(248,161,63,0.7)',
             data: [1000,1500,1250],
             tooltip: {
                 valuePrefix: '$',
@@ -120,7 +118,7 @@ $(document).ready(function () {
             yAxis: 1
         }, {
             name: 'Calorie (OUT)',
-            color: 'rgba(186,60,61,.9)',
+            color: 'rgba(186,60,61,.7)',
             data: [800,900,1000],
             tooltip: {
                 valuePrefix: '$',
@@ -147,4 +145,109 @@ $(document).ready(function () {
 	      	}
 	      }
     });
+
+		var abcChart = $('#abc').highcharts();
+		var weightChart = $('#calories').highcharts();
+		$('#one').click(function(){
+			// highlight acb chart marker
+			abcChart.series[0].update({
+				data:[{marker:{
+					fillColor:'#ff0000',
+					lineWidth:3,
+					lineColor:'#FF0000'
+				},y:0.1}, 0.9, 0.3]
+			});
+			abcChart.series[1].update({
+				data:[{marker:{
+					fillColor:'#ff0000',
+					lineWidth:3,
+					lineColor:'#FF0000'
+				},y:0.8}, 0.5, 0.6]
+			});
+			abcChart.series[2].update({
+				data:[{marker:{
+					fillColor:'#ff0000',
+					lineWidth:3,
+					lineColor:'#FF0000'
+				},y:0.3}, 0.5, 0.8]
+			});
+			// highlight weightChart bar
+			weightChart.series[0].update({
+				data:[{y:150,color:'rgb(126,86,134)'},180,160]
+			});
+			weightChart.series[1].update({
+				data:[{y:1000,color:'rgb(248,161,63)'},1500,1250]
+			});
+			weightChart.series[2].update({
+				data:[{y:800,color:'rgb(186,60,61)'},900,1000]
+			});
+		});
+		$('#two').click(function(){
+			abcChart.series[0].update({
+				data:[0.1, {marker:{
+					fillColor:'#ff0000',
+					lineWidth:3,
+					lineColor:'#FF0000'
+				},y:0.9}, 0.3]
+			});
+			abcChart.series[1].update({
+				data:[0.8, {marker:{
+					fillColor:'#ff0000',
+					lineWidth:3,
+					lineColor:'#FF0000'
+				},y:0.5}, 0.6]
+			});
+			abcChart.series[2].update({
+				data:[0.3, {marker:{
+					fillColor:'#ff0000',
+					lineWidth:3,
+					lineColor:'#FF0000'
+				},y:0.5}, 0.8]
+			});
+			// highlight weightChart bar
+			weightChart.series[0].update({
+				data:[150,{y:180,color:'rgb(126,86,134)'},160]
+			});
+			weightChart.series[1].update({
+				data:[1000,{y:1500,color:'rgb(248,161,63)'},1250]
+			});
+			weightChart.series[2].update({
+				data:[800,{y:900,color:'rgb(186,60,61)'},1000]
+			});
+		});
+		$('#three').click(function(){
+			abcChart.series[0].update({
+				data:[0.1, 0.9, {marker:{
+					fillColor:'#ff0000',
+					lineWidth:3,
+					lineColor:'#FF0000'
+				},y:0.3}]
+			});
+			abcChart.series[1].update({
+				data:[0.8, 0.5, {marker:{
+					fillColor:'#ff0000',
+					lineWidth:3,
+					lineColor:'#FF0000'
+				},y:0.6}]
+			});
+			abcChart.series[2].update({
+				data:[0.3, 0.5, {marker:{
+					fillColor:'#ff0000',
+					lineWidth:3,
+					lineColor:'#FF0000'
+				},y:0.8}]
+			});
+
+			// highlight weightChart bar
+			weightChart.series[0].update({
+				data:[150,180,{y:160,color:'rgb(126,86,134)'}]
+			});
+			weightChart.series[1].update({
+				data:[1000,1500,{y:1250,color:'rgb(248,161,63)'}]
+			});
+			weightChart.series[2].update({
+				data:[800,900,{y:1000,color:'rgb(186,60,61)'}]
+			});
+
+		});
 })
