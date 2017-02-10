@@ -29,9 +29,9 @@
 	      <li>
 	        <a id='profile'><span class="glyphicon glyphicon-user"></span><span class="nav-label">Profile</span></a>
 	        <a ng-click='toggleDays()'><span class="glyphicon glyphicon-plus" ng-if='!days'></span><span class="glyphicon glyphicon-minus" ng-if='days'></span><span class="nav-label">Everyday Data</span></a>
-	        <a  ng-click='change(one)' ng-show='days'><img src="static/images/calendar.png" class="glyphicon img-responsive"><span class="nav-label"> Day One</span></a>
-	        <a ng-click='change(two)' ng-show='days'><img src="static/images/calendar.png" class="glyphicon img-responsive"></span><span class="nav-label"> Day Two</span></a>
-	        <a ng-click='change(three)' ng-show='days'><img src="static/images/calendar.png" class="glyphicon img-responsive"><span class="nav-label"> Day Three</span></a>
+	        <a  ng-click='change(one)' id='one' ng-show='days'><img src="static/images/calendar.png" class="glyphicon img-responsive"><span class="nav-label"> Day One</span></a>
+	        <a ng-click='change(two)' ng-show='days' id='two'><img src="static/images/calendar.png" class="glyphicon img-responsive"></span><span class="nav-label"> Day Two</span></a>
+	        <a ng-click='change(three)' id='three' ng-show='days'><img src="static/images/calendar.png" class="glyphicon img-responsive"><span class="nav-label"> Day Three</span></a>
 	        <a ng-show='days'><span class="glyphicon glyphicon-option-horizontal"></span><span class="nav-label">More</span></a>
 	      </li>
 	    </ul>
@@ -41,7 +41,7 @@
 
 		<h1 class="col-sm-2 col-sm-offset-2"> Day <img src="static/images/{{info.day}}.png"></h1>
 		<div class="col-sm-12" id="details">
-	 
+
 	    <div class="col-sm-4">
 	      <div class="detail_header">
 	        Weight
@@ -52,10 +52,10 @@
 						<div id="weight">
 							<p>Weight:  <span>{{info.weight}}</span>  ( lb )</p>
 						</div>
-	      	
+
 		      </div>
 
-	         
+
 	      </div>
 
 	      <div class="detail_footer" style="background-color:#202020;">
@@ -95,7 +95,7 @@
 	         <div class="finished_word">
 	          <p >Burned <span ng-bind='info.out'></span></p>
 	          <h2>Calories !!</h2>
-	          
+
 	        	</div>
 
 	      </div>
@@ -115,9 +115,9 @@
 	        <div id="a">
 	          <p>Accomplished:  <span>{{info.a}}</span><p ng-if='info.a >0.5'> Cool!</p><br ng-if='info.a <=0.5'></p>
 	        </div>
-	        
-	        	
-	        
+
+
+
 		        <div class="progress-wrapper col-sm-8 col-sm-offset-2 ">
 
 		            <div class="circles"
@@ -234,10 +234,10 @@
 
 			<div class="col-sm-12 col-sm-offset-1" >
 				<div class="col-sm-6" id='abc'>
-					
+
 				</div>
 				<div class="col-sm-6" id='calories'>
-					
+
 				</div>
 			</div>
 		</div>
@@ -248,7 +248,7 @@
 
 		  $('.btn-expand-collapse').click(function(e) {
 		        $('.navbar-primary').toggleClass('collapsed');
-		       
+
 			});
 		});
 	</script>
